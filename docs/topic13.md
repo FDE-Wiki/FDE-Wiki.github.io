@@ -291,7 +291,7 @@ finalize:
 - **A/B 与回滚**:模板走灰度,留旧版本热备,新版本异常率超基线自动回滚。
 - **审计日志**:记录 `{prompt_id, version, model_id, input_hash, output_hash, user_id}`,任何输出可回溯到具体模板版本与模型——这是合规与事故复盘的底座。
 
-> 一句话:没有版本化的 prompt 就是定时炸弹。把 prompt 纳入和代码一样的 Git + CI + 回滚 + 审计流程,是 FDE 把"能跑的 demo"变成"敢上线的系统"的及格线。
+> 一句话:没有版本化的 prompt 就是定时炸弹。把 prompt 纳入和代码一样的 Git + CI + 回滚 + 审计流程,是 <abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 把"能跑的 demo"变成"敢上线的系统"的及格线。
 
 ## 本专题小结
 
@@ -299,7 +299,7 @@ finalize:
 
 ## 本专题来源
 
-- 实战交付沉淀:FDE 驻场项目模板库(客服、尽调、质控、12345、RAG、Agent 六类)
-- 方法论参照:CDEF 方法论 Engineer 阶段"提示工程与评测闭环"
+- 实战交付沉淀:<abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 驻场项目模板库(客服、尽调、质控、12345、<abbr class="term" title="检索增强生成">RAG</abbr>、<abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 六类)
+- 方法论参照:<abbr class="term" title="FDE 四阶段方法论">CDEF</abbr> 方法论 Engineer 阶段"提示工程与评测闭环"
 - 安全与版本化:OpenAI / Anthropic 官方 prompt 工程指南、OWASP LLM Top 10 注入防护实践
 - 评测思路:prompt 评测集与回归测试的工程化经验

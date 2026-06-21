@@ -115,7 +115,7 @@ tags: ["评估测试", "MLOps", "系统测试"]
 **核心循环**
 1. 定义/更新评估集;
 2. 跑评估,得到基线指标;
-3. 改动(prompt/模型/RAG/Agent);
+3. 改动(prompt/模型/<abbr class="term" title="检索增强生成">RAG</abbr>/Agent);
 4. 再跑评估,对比基线;
 5. 数据决定保留/回滚;
 6. bad case 回流评估集。
@@ -162,7 +162,7 @@ tags: ["评估测试", "MLOps", "系统测试"]
 整体准确率 90% 可能掩盖"某类用例 0%"。要分场景看。
 
 **误区二:评估集污染**
-评估集混进训练/RAG,指标虚高。要隔离。
+评估集混进训练/<abbr class="term" title="检索增强生成">RAG</abbr>,指标虚高。要隔离。
 
 **误区三:唯 LLM-as-Judge**
 judge 会错,关键场景要人工。
@@ -180,7 +180,7 @@ judge 会错,关键场景要人工。
 - 评估集是命脉:真实+边界+golden+bad case,版本化、防污染;
 - LLM-as-Judge 是主流,但有偏差,需 rubric+人工抽验;
 - 指标体系:检索(Recall/Precision/MRR)、生成(Faithfulness/Relevancy)、Agent(Tool/Plan/Success)、系统(延迟/成本)、业务(北极星);
-- 工具:RAGAS/TruLens/LangSmith/Phoenix/DeepEval/Promptfoo;
+- 工具:<abbr class="term" title="检索增强生成">RAG</abbr>AS/TruLens/LangSmith/Phoenix/DeepEval/Promptfoo;
 - 开发循环:定义集→基线→改动→再评→数据决策→bad case 回流;
 - 持续评估:LLM CI,变更触发、不达标阻断;
 - 在线评估:AB/影子/反馈/bad case 监控,与离线结合;

@@ -61,6 +61,46 @@ function cn2num(s) {
   return n;
 }
 
+// ---------- 术语悬浮:解析附录 A 术语表 → termMap ----------
+const termMap = new Map();
+{
+  const gs = raw.findIndex((l) => /^##\s+附录\s*A\s*术语表/.test(l));
+  const ge = gs >= 0 ? raw.findIndex((l, i) => i > gs && /^##\s+附录\s*B/.test(l)) : -1;
+  if (gs >= 0 && ge > gs) {
+    for (let i = gs + 1; i < ge; i++) {
+      const m = raw[i].match(/^\|\s*\*{0,2}(.+?)\*{0,2}\s*\|[^|]*\|([^|]*)\|/);
+      if (m) {
+        const term = m[1].trim();
+        const desc = (m[2] || '').trim();
+        if (term && desc && term.length >= 2 && term.length <= 24 && !/[|]/.test(term)) termMap.set(term, desc);
+      }
+    }
+  }
+}
+// 长术语优先,避免短词吃掉长词(如 Agent 吃 AI Agent)
+const sortedTerms = [...termMap.keys()].sort((a, b) => b.length - a.length);
+function applyTerms(text) {
+  if (!sortedTerms.length) return text;
+  // 跳过含 markdown 结构标记的行,避免 abbr 与 ** ` $ | [ < 等交错破坏 Vue 编译(只对纯文本段落悬浮)
+  if (/(\*\*|`|\$|\||\[|<)/.test(text)) return text;
+  const slots = [];
+  let r = text;
+  for (const term of sortedTerms) {
+    const esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    r = r.replace(new RegExp(esc, 'g'), (m, offset, str) => {
+      // 跳过 markdown 标记/HTML 上下文,避免 abbr 与 ** ` [ ] ( ) < > ~ " ' 等交错破坏 Vue 编译
+      const before = offset > 0 ? str[offset - 1] : '';
+      const after = str[offset + term.length] || '';
+      if (/[*`\[\]()|<>~"']/.test(before) || /[*`\[\]()|<>~"']/.test(after)) return m;
+      const p = '\x00T' + slots.length + '\x00';
+      slots.push({ p, term });
+      return p;
+    });
+  }
+  for (const { p, term } of slots) r = r.replace(p, '<abbr class="term" title="' + termMap.get(term).replace(/"/g, '&quot;') + '">' + term + '</abbr>');
+  return r;
+}
+
 // ---------- 交叉链接 ----------
 // 把正文里的「第 N 章」「专题X」转成站内链接；跳过标题行与代码围栏内的行；
 // 顺带修掉 `` `python> `` 这类非法代码语言标记（消除构建警告）。
@@ -72,6 +112,7 @@ function crossLink(body) {
     if (FENCE_RE.test(line)) { inFence = !inFence; continue; }
     if (inFence) continue;
     if (/^#{1,6}\s/.test(line)) continue; // 不在标题里加链接
+    line = applyTerms(line); // 术语悬浮(在加章节链接前作用于原始文本,避免误碰链接文本)
     line = line.replace(/第\s*(\d{1,2})\s*章/g, (m, d) => {
       const n = parseInt(d, 10);
       return (n >= 1 && n <= 23) ? `[第 ${n} 章](/ch${pad(n)})` : m;

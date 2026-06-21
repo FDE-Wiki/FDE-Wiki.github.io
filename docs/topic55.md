@@ -19,24 +19,24 @@ tags: ["持续学习", "知识管理", "职业发展"]
 
 ## 二、学习的三个维度:技术、行业、方法论
 
-FDE 的学习不是单线的,而是三条线同时跑。把这三条线分清楚,才能避免"只学技术、行业抓瞎"或"只啃行业、技术落后"的失衡。
+<abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 的学习不是单线的,而是三条线同时跑。把这三条线分清楚,才能避免"只学技术、行业抓瞎"或"只啃行业、技术落后"的失衡。
 
 **维度一:技术线(LLM / Agent / 工具链)**
 - LLM 基础能力:主流模型(GPT、Claude、Gemini、国产的 Qwen、DeepSeek、GLM)的能力边界、价格、API、上下文窗口、工具调用、多模态;
-- Agent 架构:ReAct、Plan-and-Execute、多 Agent 协作、MCP(Model Context Protocol)、A2A(Agent-to-Agent)协议;
-- RAG 全家桶:embedding、rerank、chunk 策略、混合检索、GraphRAG、Agentic RAG;
-- 工具链:LangChain/LangGraph、LlamaIndex、Dify、Coze、FastGPT、n8n、MCP server 生态;
+- <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 架构:ReAct、Plan-and-Execute、多 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 协作、MCP(Model Context Protocol)、A2A(Agent-to-Agent)协议;
+- <abbr class="term" title="检索增强生成">RAG</abbr> 全家桶:embedding、rerank、chunk 策略、混合检索、Graph<abbr class="term" title="检索增强生成">RAG</abbr>、<abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr>ic <abbr class="term" title="检索增强生成">RAG</abbr>;
+- 工具链:LangChain/LangGraph、LlamaIndex、Dify、Coze、FastGPT、n8n、<abbr class="term" title="Anthropic 提出的 Agent 工具接口标准">MCP</abbr> server 生态;
 - 部署与工程:vLLM、SGLang、TGI、量化(GPTQ/AWQ/GGUF)、本地化部署、私有化方案。
 
 **维度二:行业线(垂直领域)**
-- 行业术语与核心业务流程(这是跟客户对话的"入场券");
+- 行业<abbr class="term" title="说明">术语</abbr>与核心业务流程(这是跟客户对话的"入场券");
 - 行业的关键 KPI 和痛点(才能把 AI 方案对到"业务价值"上);
 - 行业的监管与合规约束(医疗的 HIPAA/《个人信息保护法》、金融的巴塞尔协议/反洗钱、数据安全法);
 - 行业的数据资产现状(有哪些系统、哪些数据、质量如何);
 - 行业的标杆案例(谁做成了、谁做砸了、为什么)。
 
 **维度三:方法论线(交付 / 沟通 / 复盘)**
-- 交付方法论:CDEF 四阶段、PoC/MVD、灰度、可追溯文档;
+- 交付方法论:<abbr class="term" title="FDE 四阶段方法论">CDEF</abbr> 四阶段、PoC/<abbr class="term" title="最小可行交付;先跑通最小系统">MVD</abbr>、灰度、可追溯文档;
 - 客户沟通:需求挖掘、期望管理、向上汇报、跨部门协调;
 - 复盘与沉淀:项目复盘的结构化方法、案例库建设。
 
@@ -65,7 +65,7 @@ FDE 的学习不是单线的,而是三条线同时跑。把这三条线分清楚
 
 ## 四、优质信息源:一份可直接照抄的清单
 
-下面这份清单是按"信噪比从高到低"排序的实战清单,FDE 可以直接订阅。
+下面这份清单是按"信噪比从高到低"排序的实战清单,<abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 可以直接订阅。
 
 **第一梯队:一手来源(最高优先级)**
 - **arXiv**(arxiv.org):AI 论文预印本。重点 cs.CL、cs.LG、cs.AI 分类。不必每篇读,关注四大顶会(NeurIPS/ICML/ICLR/ACL)的录用论文即可;
@@ -111,7 +111,7 @@ FDE 的学习不是单线的,而是三条线同时跑。把这三条线分清楚
 - 哪些假设被验证了?哪些被推翻了?
 - 哪些决策是好的?哪些是错的?
 - 下次会怎么做?
-复盘不是"写个总结",而是"把隐性经验显性化"。很多 FDE 做了 10 个项目,能力却没长进,就是因为没复盘——经验没沉淀。
+复盘不是"写个总结",而是"把隐性经验显性化"。很多 <abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 做了 10 个项目,能力却没长进,就是因为没复盘——经验没沉淀。
 
 > **FDE 的经验**:这四种方法不是选其一,而是组合拳。**项目驱动负责"输入",刻意练习负责"精进",费曼负责"验证理解",复盘负责"沉淀"**。缺任何一环,学习都会漏掉。
 
@@ -177,7 +177,7 @@ FDE 的学习不是单线的,而是三条线同时跑。把这三条线分清楚
 
 ## 八、学习节奏:每日 / 每周 / 每月
 
-学习不是"有时间就学",而是"嵌入到日常的固定动作"。下面是一个被很多 FDE 验证有效的节奏。
+学习不是"有时间就学",而是"嵌入到日常的固定动作"。下面是一个被很多 <abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 验证有效的节奏。
 
 **每日(15–30 分钟)**:
 - 刷一遍核心信源(官方博客、Twitter 关键人、arXiv SF、HN 热榜);
@@ -190,7 +190,7 @@ FDE 的学习不是单线的,而是三条线同时跑。把这三条线分清楚
 - 做一次小实验或小练习(跑通一个 demo、写一段代码)。
 
 **每月(半天到一天)**:
-- 做一次主题学习:选一个主题(如 GraphRAG、MCP),系统地学一遍;
+- 做一次主题学习:选一个主题(如 Graph<abbr class="term" title="检索增强生成">RAG</abbr>、MCP),系统地学一遍;
 - 写一篇输出(博客、内部技术分享、知乎回答);
 - 复盘本月的学习:学了什么、用了什么、哪些还没用上。
 
@@ -224,9 +224,9 @@ FDE 的学习不是单线的,而是三条线同时跑。把这三条线分清楚
 最后讲一个最重要的判断:**FDE 的学习是复利的,不是线性的**。
 
 - 第 1 年:学的东西很零散,看不出价值;
-- 第 2 年:开始能把不同领域的知识连起来(比如把 RAG + 行业知识 + 沟通技巧组合,做出一个让客户买单的方案);
+- 第 2 年:开始能把不同领域的知识连起来(比如把 <abbr class="term" title="检索增强生成">RAG</abbr> + 行业知识 + 沟通技巧组合,做出一个让客户买单的方案);
 - 第 3 年:知识网络足够密,遇到新问题能快速"调用"已有知识;
-- 第 5 年:你已经是一个"自带体系"的 FDE,别人难以替代。
+- 第 5 年:你已经是一个"自带体系"的 <abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr>,别人难以替代。
 
 复利的关键是**"连点成线"**——乔布斯说的 "connect the dots"。一个 FDE 学过医疗、再学过金融、又懂多 Agent 架构,他做的方案就会有别人没有的视角。这些"跨界组合",只有在持续积累后才会爆发。
 
@@ -256,11 +256,11 @@ FDE 这个岗位的特殊性在于,**它本身就是逼你练就"持续学习 + 
 
 - 模型厂商官方文档与博客:OpenAI、Anthropic、Google Research、Meta AI、Hugging Face Blog(2023–2025)。
 - 学术预印本平台:arXiv(cs.CL / cs.LG / cs.AI 分类)、Hugging Face Daily Papers、Papers with Code。
-- 框架官方文档与 Issues:LangChain/LangGraph、LlamaIndex、AutoGen、CrewAI、OpenAI Agents SDK、Anthropic MCP 文档。
+- 框架官方文档与 Issues:LangChain/LangGraph、LlamaIndex、AutoGen、CrewAI、OpenAI <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr>s SDK、Anthropic <abbr class="term" title="Anthropic 提出的 Agent 工具接口标准">MCP</abbr> 文档。
 - 技术社区与一手从业者讨论:Hacker News、Reddit(r/LocalLLaMA、r/MachineLearning)、Twitter/X 上 Harrison Chase、Andrej Karpathy、Jim Fan 等的推文。
 - 学习方法经典文献:Richard Feynman《Surely You're Joking, Mr. Feynman!》(费曼学习法出处);Anders Ericsson《Peak: Secrets from the New Science of Expertise》(刻意练习);Niklas Luhmann 的 Zettelkasten 方法相关介绍。
 - 知识管理工具官方文档:Obsidian(obsidian.md)、Notion、Logseq。
 - 行业报告:Gartner Hype Cycle for AI、McKinsey《The State of AI》、信通院《人工智能发展白皮书》。
-- FDE/FDSE 一线实践:Palantir 工程师公开技术分享、国内大厂 FDE/解决方案工程师的项目复盘材料。
-- 本套 FDE 文档中的《CDEF 方法论》全文、《FDE 工程师完全指南》(学习方法与信息素养相关章节为本专题的方法论基础)。
+- <abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr>/<abbr class="term" title="前沿部署软件工程师;Palantir 体系里的 Delta,写生产代码">FDSE</abbr> 一线实践:Palantir 工程师公开技术分享、国内大厂 <abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr>/解决方案工程师的项目复盘材料。
+- 本套 <abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 文档中的《<abbr class="term" title="FDE 四阶段方法论">CDEF</abbr> 方法论》全文、《<abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 工程师完全指南》(学习方法与信息素养相关章节为本专题的方法论基础)。
 - 说明:本专题不引用具体薪资、增长率等数字型论断;凡涉及模型/框架能力的判断,均以截至 2025 年的官方文档与作者公开实测为依据,新版本发布后需读者自行回一手来源核对。

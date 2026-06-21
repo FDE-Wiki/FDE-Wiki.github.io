@@ -108,3 +108,12 @@
 .font-size-ctrl { display: flex; gap: 4px; align-items: center; margin-right: 8px; }
 .fs-btn { width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg); color: var(--vp-c-text-2); font-size: 12px; cursor: pointer; padding: 0; }
 .fs-btn:hover { color: var(--vp-c-brand-1); border-color: var(--vp-c-brand-1); }
+
+/* 术语悬浮提示:正文里的术语 hover 显示附录术语表解释 */
+abbr.term {
+  text-decoration: underline dotted var(--vp-c-brand-1);
+  text-underline-offset: 3px;
+  cursor: help;
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+}

@@ -7,7 +7,7 @@ tags: ["RAG", "知识图谱", "数据工程", "评估测试"]
 
 ## 一、为什么企业 RAG 比 ChatGPT 难得多
 
-很多人以为 RAG 就是"文档切块 → 嵌入 → 向量检索 → 拼进 prompt"。在企业现场,FDE 很快会发现这个"朴素 RAG"远远不够:
+很多人以为 <abbr class="term" title="检索增强生成">RAG</abbr> 就是"文档切块 → 嵌入 → 向量检索 → 拼进 prompt"。在企业现场,<abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 很快会发现这个"朴素 RAG"远远不够:
 
 - **文档脏、杂、长**:客户的文档是 PDF/Word/扫描件/Excel/网页混合,表格、公式、图片、跨页,切块就够头疼;
 - **问题刁钻**:用户问"去年三季度华东区那个退货率异常的产品",朴素检索根本召不回;
@@ -20,7 +20,7 @@ tags: ["RAG", "知识图谱", "数据工程", "评估测试"]
 
 ## 二、RAG 的四代演进
 
-理解 RAG 进阶,先看它的四代演进:
+理解 <abbr class="term" title="检索增强生成">RAG</abbr> 进阶,先看它的四代演进:
 
 **第一代:朴素 RAG(Naive RAG)**
 - 固定长度切块 → 嵌入 → 向量检索 top-k → 拼 prompt;
@@ -36,7 +36,7 @@ tags: ["RAG", "知识图谱", "数据工程", "评估测试"]
 - 适合复杂关联推理。
 
 **第四代:Agentic RAG**
-- Agent 自主决定"检索什么、检索几次、要不要换策略";
+- <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 自主决定"检索什么、检索几次、要不要换策略";
 - 适合复杂、多跳问题。
 
 ## 三、分块(Chunking)深度策略
@@ -82,7 +82,7 @@ tags: ["RAG", "知识图谱", "数据工程", "评估测试"]
 - **指令式嵌入**:bge 等支持 instruction,查询和文档用不同指令提升精度。
 
 **嵌入微调(进阶)**
-当通用嵌入在客户领域召回不准时,FDE 可用对比学习微调嵌入:
+当通用嵌入在客户领域召回不准时,<abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 可用对比学习微调嵌入:
 - 构造(查询, 相关文档, 不相关文档)三元组;
 - 用 bge 的微调脚本训练;
 - 显著提升领域召回。
@@ -167,7 +167,7 @@ tags: ["RAG", "知识图谱", "数据工程", "评估测试"]
 **第四代 Agentic RAG,把检索交给 Agent 自主决策。**
 
 **Agentic RAG 流程**
-- Agent 收到问题,判断"要不要检索、检索什么";
+- <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 收到问题,判断"要不要检索、检索什么";
 - 检索后评估"够不够",不够再检索(迭代);
 - 可调用多个知识源、工具;
 - 综合多轮检索结果生成答案。
@@ -248,15 +248,15 @@ tags: ["RAG", "知识图谱", "数据工程", "评估测试"]
 
 ## 本专题小结
 
-- 企业 RAG 难在检索质量 + 工程化,90% 工作在这;
-- 四代演进:朴素 → 进阶 → GraphRAG → Agentic;
+- 企业 <abbr class="term" title="检索增强生成">RAG</abbr> 难在检索质量 + 工程化,90% 工作在这;
+- 四代演进:朴素 → 进阶 → Graph<abbr class="term" title="检索增强生成">RAG</abbr> → <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr>ic;
 - 分块:递归/语义/结构化,带元数据与权限;
 - 嵌入:中文 bge/国产,领域不准可微调;
 - 混合检索:向量 + BM25 + 结构,RRF 融合;
 - 重排:性价比最高的一步,+5—15pp;
 - 查询优化:改写/扩展/分解/HyDE;
-- GraphRAG:实体关系多跳;
-- Agentic RAG:Agent 自主迭代检索;
+- Graph<abbr class="term" title="检索增强生成">RAG</abbr>:实体关系多跳;
+- <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr>ic <abbr class="term" title="检索增强生成">RAG</abbr>:<abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 自主迭代检索;
 - Context Engineering:系统化构建上下文,接棒 Prompt Engineering;
 - 评估:检索(召回/精确)+ 生成(忠实/相关)+ 端到端(RAGAS/TruLens);
 - 工程化:增量、多租户权限、可观测、性能。

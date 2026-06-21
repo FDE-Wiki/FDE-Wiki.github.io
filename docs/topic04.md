@@ -42,7 +42,7 @@ tags: ["Prompt工程", "评估测试", "安全合规"]
 
 **Design 阶段 prompt**
 - 方案生成、技术选型 prompt;
-- 例:"在信创+等保三级约束下,为这个政务问答场景设计 RAG 架构。"
+- 例:"在<abbr class="term" title="中国国产化替代">信创</abbr>+等保三级约束下,为这个政务问答场景设计 <abbr class="term" title="检索增强生成">RAG</abbr> 架构。"
 
 **Engineer 阶段 prompt**
 - 生产 prompt(系统真正跑的);
@@ -68,7 +68,7 @@ tags: ["Prompt工程", "评估测试", "安全合规"]
 
 **ReAct(Reason + Act)**
 - 模型边推理边调用工具;
-- Agent 的基础模式;
+- <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 的基础模式;
 - 关键:工具描述清晰。
 
 **自洽(Self-Consistency)**
@@ -147,7 +147,7 @@ tags: ["Prompt工程", "评估测试", "安全合规"]
 **测试与评估**
 - Promptfoo(prompt/模型对比);
 - DeepEval(LLM 单元测试);
-- RAGAS/TruLens。
+- <abbr class="term" title="检索增强生成">RAG</abbr>AS/TruLens。
 
 **监控**
 - LangSmith/Langfuse(prompt 线上效果监控)。
@@ -180,7 +180,7 @@ tags: ["Prompt工程", "评估测试", "安全合规"]
 
 - Prompt 工程关注"如何写指令";
 - Context Engineering 关注"如何构建整个上下文"(指令+检索+记忆+工具+约束);
-- 当 RAG/Agent 成熟,prompt 只是上下文的一部分,Context Engineering 成为更大的框架。
+- 当 <abbr class="term" title="检索增强生成">RAG</abbr>/<abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 成熟,prompt 只是上下文的一部分,Context Engineering 成为更大的框架。
 
 > **FDE 的演进**:从"写好 prompt"到"构建好上下文管道"。但 prompt 工程的基本功(五要素、模式、版本、评估、安全)仍是地基。
 
@@ -188,12 +188,12 @@ tags: ["Prompt工程", "评估测试", "安全合规"]
 
 - 认知重置:prompt 是接口 specification,不是咒语,要工程化;
 - 五要素:角色/任务/上下文/约束/示例,逐要素可调可诊断;
-- CDEF-P:prompt 按 Context/Design/Engineer/Feedback 阶段分层管理;
+- <abbr class="term" title="FDE 四阶段方法论">CDEF</abbr>-P:prompt 按 Context/Design/Engineer/Feedback 阶段分层管理;
 - 设计模式:few-shot/CoT/ReAct/自洽/反思/结构化输出,按场景选;
 - 版本管理:prompt 是代码,git/PromptLayer,可回滚可评审;
 - AB 测试:改 prompt 靠数据不靠感觉;
-- 安全:prompt injection 是头号风险,隔离+过滤+校验+最小权限+HITL;
-- 工具:LangSmith/PromptLayer/Promptfoo/DeepEval/RAGAS;
+- 安全:prompt injection 是头号风险,隔离+过滤+校验+最小权限+<abbr class="term" title="人在回路;关键节点人介入">HITL</abbr>;
+- 工具:LangSmith/PromptLayer/Promptfoo/DeepEval/<abbr class="term" title="检索增强生成">RAG</abbr>AS;
 - 反模式:巨型/无示例/无约束/不版本/不评估;
 - 趋势:Prompt Engineering 被 Context Engineering 升级吸收。
 

@@ -79,7 +79,7 @@ tags: ["推理优化", "成本容量", "边缘AI", "应用架构"]
 
 **前缀缓存(Prefix Caching)**
 - 相同系统 prompt/上下文的请求,缓存前缀 KV;
-- RAG/Agent 场景(系统 prompt 长)受益巨大;
+- <abbr class="term" title="检索增强生成">RAG</abbr>/<abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 场景(系统 prompt 长)受益巨大;
 - vLLM `--enable-prefix-caching`。
 
 **投机解码(Speculative Decoding)**
@@ -125,7 +125,7 @@ tags: ["推理优化", "成本容量", "边缘AI", "应用架构"]
 
 **信创部署(中国)**
 - 昇腾/海光 + 麒麟/统信 + 国产模型;
-- FDE 做全栈适配验证;
+- <abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 做全栈适配验证;
 - 政务、金融、能源硬要求。
 
 > **可照抄(docker-compose 一键起推理 + RAG 栈)**:
@@ -174,7 +174,7 @@ tags: ["推理优化", "成本容量", "边缘AI", "应用架构"]
 
 ## 八、推理优化的 FDE 决策树
 
-面对客户的推理需求,FDE 的决策路径:
+面对客户的推理需求,<abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 的决策路径:
 1. 模型多大?→ 决定是否量化/并行;
 2. 算力多少?→ 决定模型规模与量化级别;
 3. 延迟要求?→ 决定批处理策略、是否投机解码;
@@ -187,7 +187,7 @@ tags: ["推理优化", "成本容量", "边缘AI", "应用架构"]
 - 量化:AWQ(最常用)/GPTQ/bitsandbytes/GGUF,显存速度大幅优化,精度可控损失;
 - 性能:PagedAttention、连续批处理、前缀缓存、投机解码、KV cache 优化;
 - GPU:H100/A100/L40S/昇腾,张量/流水线/数据并行;
-- 部署:云/私有/边缘/信创,docker-compose 一键起栈;
+- 部署:云/私有/边缘/<abbr class="term" title="中国国产化替代">信创</abbr>,docker-compose 一键起栈;
 - 成本:量化+批处理+前缀缓存+模型分级+结果缓存+弹性;
 - 监控:延迟/吞吐/错误/利用率/成本,vLLM metrics + Grafana;
 - 决策树:模型大小→算力→延迟→流量→预算。

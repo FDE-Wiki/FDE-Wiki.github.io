@@ -7,7 +7,7 @@ tags: ["Agent", "可观测性", "成本容量", "应用架构"]
 
 ## 一、从"调一个 LLM"到"编排一群 Agent"
 
-单次 LLM 调用是"一问一答",Agent 编排是"让多个 LLM 调用 + 工具调用 + 人工节点,按一定拓扑协作完成复杂任务"。FDE 在客户现场搭建的,几乎都是后者。
+单次 LLM 调用是"一问一答",<abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 编排是"让多个 LLM 调用 + 工具调用 + 人工节点,按一定拓扑协作完成复杂任务"。<abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 在客户现场搭建的,几乎都是后者。
 
 **Agent 编排的本质挑战**
 - **状态管理**:多步、多 Agent 之间要共享和传递状态;
@@ -21,18 +21,18 @@ tags: ["Agent", "可观测性", "成本容量", "应用架构"]
 
 ## 二、六种典型编排拓扑
 
-FDE 设计 Agent 系统时,先选拓扑。常见的六种:
+<abbr class="term" title="前沿部署工程师;把 AI/数据系统部署到客户真实环境并对业务结果负责">FDE</abbr> 设计 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 系统时,先选拓扑。常见的六种:
 
 **拓扑一:线性/管道(Pipeline)**
-- Agent A → B → C 顺序执行;
+- <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> A → B → C 顺序执行;
 - 适合:步骤清晰、无分支的流程(如:抽取 → 校验 → 入库);
 - 优势:简单、可控、易调试;
 - 框架:任何框架都能做。
 
 **拓扑二:路由器(Router)**
-- 一个路由 Agent 根据输入,分发给不同专职 Agent;
+- 一个路由 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 根据输入,分发给不同专职 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr>;
 - 适合:客服分诊、工单派发(如 12345);
-- 优势:可扩展(加新专职 Agent 即可);
+- 优势:可扩展(加新专职 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 即可);
 - 关键:路由准确度。
 
 **拓扑三:并行扇出/扇合(Fan-out/Fan-in)**
@@ -42,18 +42,18 @@ FDE 设计 Agent 系统时,先选拓扑。常见的六种:
 - 关键:合并策略。
 
 **拓扑四:规划-执行(Planner-Executor)**
-- 规划 Agent 拆解步骤,执行 Agent 逐步执行;
+- 规划 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 拆解步骤,执行 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 逐步执行;
 - 适合:复杂任务(研究、尽调);
 - 代表:ReAct、Plan-and-Execute 模式;
 - 关键:规划质量 + 执行可控。
 
 **拓扑五:辩论/多角色(Debate/Multi-persona)**
-- 多个不同视角的 Agent 辩论/讨论,得出更稳健结论;
+- 多个不同视角的 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 辩论/讨论,得出更稳健结论;
 - 适合:高风险决策、创意发散;
 - 代价:成本高。
 
 **拓扑六:层级/主管(Hierarchical / Supervisor)**
-- 一个主管 Agent 管理多个子 Agent,动态分配;
+- 一个主管 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 管理多个子 <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr>,动态分配;
 - 适合:复杂、动态任务;
 - 代表:CrewAI 的 crew、LangGraph 的 supervisor;
 - 关键:主管的调度能力。
@@ -82,7 +82,7 @@ FDE 设计 Agent 系统时,先选拓扑。常见的六种:
 > from langgraph.graph import StateGraph
 > import operator
 >
-> class AgentState(TypedDict):
+> class <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr>State(TypedDict):
 >     query: str
 >     retrieved_docs: Annotated[list, operator.add]  # 多节点追加
 >     answer: str
@@ -133,8 +133,8 @@ FDE 设计 Agent 系统时,先选拓扑。常见的六种:
 - **幂等与安全**:危险操作要幂等 + 二次确认。
 
 **MCP 化(企业系统接入)**
-- 把企业系统(ERP/CRM/HIS/MES)包成 MCP server;
-- Agent 即插即用调用;
+- 把企业系统(ERP/CRM/HIS/MES)包成 <abbr class="term" title="Anthropic 提出的 Agent 工具接口标准">MCP</abbr> server;
+- <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 即插即用调用;
 - 统一权限、审计、限流。
 
 > **SB Energy 模式**:FDE 的核心工作之一就是"把企业系统 MCP 化",让 Agent 能直接操作业务系统。
@@ -150,7 +150,7 @@ FDE 设计 Agent 系统时,先选拓扑。常见的六种:
 - **行为护栏**:限制 Agent 行为(不许循环超过 N 次、不许烧超过 X token)。
 
 **工具**
-- Guardrails AI、NeMo Guardrails、Lakera;
+- <abbr class="term" title="输入/输出/工具的安全过滤">Guardrails</abbr> AI、NeMo <abbr class="term" title="输入/输出/工具的安全过滤">Guardrails</abbr>、Lakera;
 - 也可自研(规则 + 小模型)。
 
 ## 七、故障模式与韧性设计
@@ -204,7 +204,7 @@ FDE 设计 Agent 系统时,先选拓扑。常见的六种:
 ## 十、框架选型再深入
 
 **LangGraph(生产首选)**
-- 优势:有状态、可审计、HITL 原生、checkpoint、灵活拓扑;
+- 优势:有状态、可审计、<abbr class="term" title="人在回路;关键节点人介入">HITL</abbr> 原生、checkpoint、灵活拓扑;
 - 适合:生产级复杂编排;
 - 代价:学习曲线。
 
@@ -226,11 +226,11 @@ FDE 设计 Agent 系统时,先选拓扑。常见的六种:
 
 ## 本专题小结
 
-- Agent 编排本质挑战:状态/控制流/可靠性/可观测/HITL/成本;
+- <abbr class="term" title="能自主多步调用工具完成任务的 AI">Agent</abbr> 编排本质挑战:状态/控制流/可靠性/可观测/<abbr class="term" title="人在回路;关键节点人介入">HITL</abbr>/成本;
 - 六种拓扑:线性/路由/扇出扇合/规划执行/辩论/层级,按需选,别过度设计;
 - 状态契约:Pydantic schema + 校验 + 版本,LangGraph State 典型;
-- HITL:按风险插、interrupt/resume、反馈回流,是一等公民非补丁;
-- 工具/MCP:工具单一职责+严格 schema,MCP 化企业系统(SB Energy 模式);
+- <abbr class="term" title="人在回路;关键节点人介入">HITL</abbr>:按风险插、interrupt/resume、反馈回流,是一等公民非补丁;
+- 工具/<abbr class="term" title="Anthropic 提出的 Agent 工具接口标准">MCP</abbr>:工具单一职责+严格 schema,<abbr class="term" title="Anthropic 提出的 Agent 工具接口标准">MCP</abbr> 化企业系统(SB Energy 模式);
 - 护栏:输入/输出/工具/行为四类,防 injection 与越界;
 - 韧性:超时重试/降级/熔断/隔离/可观测/回滚;
 - 可观测:追踪/指标/日志/回放,LangSmith/Langfuse/Phoenix;
