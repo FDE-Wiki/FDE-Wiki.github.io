@@ -46,3 +46,10 @@
   margin-top: 24px;
   scroll-margin-top: 80px;
 }
+
+/* 站点标题「FDE全球市场与全行业落地」往左移:has-sidebar 默认把标题对齐到左侧栏右缘(偏右),
+   用负的侧栏宽度抵消,让标题回到顶部栏左侧。
+   想收回一点就改小数值,如 margin-left: -200px 或 -150px */
+.VPNavBarTitle.has-sidebar {
+  margin-left: calc(-1 * var(--vp-sidebar-width, 272px));
+}
